@@ -7,7 +7,7 @@ class About extends Component {
         <img src="lassie.png" v-space="10" class="float-left" />
 
         <div class="alert" role="alert">
-          <b class="lead">List and buy ficticious products today!</b>
+          <b class="lead">List and buy fictitious products today!</b>
           <p class="">
             This{" "}
             <a href="https://rinkeby.etherscan.io/address/0x0a9bb924cf4ae1fc0a3e1ab28e1a7503cf2c0f84">

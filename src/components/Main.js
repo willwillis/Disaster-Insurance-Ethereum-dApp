@@ -73,7 +73,7 @@ class Main extends Component {
                   <td>
                     {!product.purchased ? (
                       <button
-                        className="buyButton"
+                        className="btn btn-primary"
                         name={product.id}
                         value={product.price}
                         onClick={event => {
