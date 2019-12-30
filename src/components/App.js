@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Web3 from "web3";
-import logo from "../logo.png";
+// import logo from "../logo.png";
 import "./App.css";
-import Marketplace from "../abis/Marketplace.json";
+import Lassie from "../abis/Lassie.json";
 import Navbar from "./Navbar";
 import About from "./About";
 import Main from "./Main";
@@ -34,28 +34,25 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts();
     this.setState({ account: accounts[0] });
     const networkId = await web3.eth.net.getId();
-    const networkData = Marketplace.networks[networkId];
+    const networkData = Lassie.networks[networkId];
     if (networkData) {
       // window.alert('loadBlockChainData ... networkData is truthy...')
-      const marketplace = web3.eth.Contract(
-        Marketplace.abi,
-        networkData.address
-      );
-      this.setState({ marketplace });
-      const productCount = await marketplace.methods.productCount().call();
-      console.log(productCount.toString());
-      this.setState({ productCount });
-      for (var i = 1; i <= productCount; i++) {
-        const product = await marketplace.methods.products(i).call();
+      const lassie = web3.eth.Contract(Lassie.abi, networkData.address);
+      this.setState({ lassie });
+      const sensorCount = await lassie.methods.sensorCount().call();
+      console.log(sensorCount.toString());
+      this.setState({ sensorCount });
+      for (var i = 1; i <= sensorCount; i++) {
+        const sensor = await lassie.methods.sensors(i).call();
         this.setState({
-          products: [...this.state.products, product]
+          sensors: [...this.state.sensors, sensor]
         });
       }
-      console.log(this.state.products);
+      console.log(this.state.sensors);
 
       this.setState({ loading: false });
     } else {
-      window.alert("Marketplace contract not deployed to detected network.");
+      window.alert("Lassie contract not deployed to detected network.");
     }
   }
 
@@ -63,34 +60,34 @@ class App extends Component {
     super(props);
     this.state = {
       account: "",
-      productCount: 0,
-      products: [],
+      sensorCount: 0,
+      sensors: [],
       loading: true
     };
 
-    this.createProduct = this.createProduct.bind(this);
-    this.purchaseProduct = this.purchaseProduct.bind(this);
+    this.createSensor = this.createSensor.bind(this);
+    //this.purchaseSensor = this.purchaseSensor.bind(this);
   }
 
-  createProduct(name, price) {
+  createSensor(name, lat, lon, endpoint) {
     this.setState({ loading: true });
-    this.state.marketplace.methods
-      .createProduct(name, price)
+    this.state.lassie.methods
+      .createSensor(name, lat, lon, endpoint)
       .send({ from: this.state.account })
       .once("receipt", receipt => {
         this.setState({ loading: false });
       });
   }
 
-  purchaseProduct(id, price) {
-    this.setState({ loading: true });
-    this.state.marketplace.methods
-      .purchaseProduct(id)
-      .send({ from: this.state.account, value: price })
-      .once("receipt", receipt => {
-        this.setState({ loading: false });
-      });
-  }
+  //   purchaseSensor(id, price) {
+  //     this.setState({ loading: true });
+  //     this.state.lassie.methods
+  //       .purchaseSensor(id)
+  //       .send({ from: this.state.account, value: price })
+  //       .once("receipt", receipt => {
+  //         this.setState({ loading: false });
+  //       });
+  //   }
 
   render() {
     return (
@@ -106,9 +103,8 @@ class App extends Component {
                 </div>
               ) : (
                 <Main
-                  products={this.state.products}
-                  createProduct={this.createProduct}
-                  purchaseProduct={this.purchaseProduct}
+                  sensors={this.state.sensors}
+                  createSensor={this.createSensor}
                 />
               )}
             </main>

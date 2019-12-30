@@ -7,22 +7,12 @@ class About extends Component {
         <img src="lassie.png" v-space="10" class="float-left" />
 
         <div class="alert" role="alert">
-          <b class="lead">List and buy fictitious products today!</b>
-          <p class="">
-            This{" "}
-            <a href="https://rinkeby.etherscan.io/address/0x0a9bb924cf4ae1fc0a3e1ab28e1a7503cf2c0f84">
-              Contract
-            </a>{" "}
-            is deployed to the{" "}
-            <a href="https://www.rinkeby.io/#stats" class="alert-link">
-              Rinkeby
-            </a>{" "}
-            Test Ethereum Network.
-          </p>
+          <b class="lead">Customer: State of California</b>
+          <p class="">Smoke and Termerature Sensors</p>
 
           <small>
             Manually refresh this page after MetaMask confirms interactions with
-            the contract are successful.
+            the contract are successful. #FixMe!!
           </small>
         </div>
       </div>

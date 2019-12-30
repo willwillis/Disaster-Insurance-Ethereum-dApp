@@ -4,90 +4,96 @@ class Main extends Component {
   render() {
     return (
       <div id="content">
-        <h2>List a Product for Sale</h2>
+        <h2>Add a Sensor</h2>
         <form
           onSubmit={event => {
             event.preventDefault();
-            const name = this.productName.value;
-            const price = window.web3.utils.toWei(
-              this.productPrice.value.toString(),
-              "Ether"
-            );
-            this.props.createProduct(name, price);
+            const name = this.sensorName.value;
+            // const price = window.web3.utils.toWei(
+            //   this.sensorPrice.value.toString(),
+            //   "Ether"
+            // );
+            const lat = this.sensorLat.value;
+            const lon = this.sensorLon.value;
+            const endpoint = this.sensorEndpoint.value;
+            this.props.createSensor(name, lat, lon, endpoint);
           }}
         >
           <div className="form-group mr-sm-2">
             <input
-              id="productName"
+              id="sensorName"
               type="text"
               ref={input => {
-                this.productName = input;
+                this.sensorName = input;
               }}
               className="form-control"
-              placeholder="Product Name"
+              placeholder="Sensor Name"
               required
             />
           </div>
           <div className="form-group mr-sm-2">
             <input
-              id="productPrice"
+              id="sensorLat"
               type="text"
               ref={input => {
-                this.productPrice = input;
+                this.sensorLat = input;
               }}
               className="form-control"
-              placeholder="Product Price"
+              placeholder="Sensor Latitude"
+              required
+            />
+          </div>
+          <div className="form-group mr-sm-2">
+            <input
+              id="sensorLon"
+              type="text"
+              ref={input => {
+                this.sensorLon = input;
+              }}
+              className="form-control"
+              placeholder="Sensor Longitude"
+              required
+            />
+          </div>
+          <div className="form-group mr-sm-2">
+            <input
+              id="sensorEndpoint"
+              type="text"
+              ref={input => {
+                this.sensorEndpoint = input;
+              }}
+              className="form-control"
+              placeholder="AWS Endpoint"
               required
             />
           </div>
           <button type="submit" className="btn btn-primary">
-            Add Product
+            Add Sensor
           </button>
         </form>
         <p>&nbsp;</p>
-        <h2>Buy a Product</h2>
+        <h2>Sensor List</h2>
         <table className="table">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
-              <th scope="col">Price</th>
+              <th scope="col">Lat</th>
+              <th scope="col">Lon</th>
+              <th scope="col">Endpoint</th>
               <th scope="col">Owner</th>
-              <th scope="col"></th>
             </tr>
           </thead>
-          <tbody id="productList">
-            {this.props.products.map((product, key) => {
+          <tbody id="sensorList">
+            {this.props.sensors.map((sensor, key) => {
               return (
                 <tr key={key}>
-                  <th scope="row">{product.id.toString()}</th>
-                  <td>{product.name}</td>
-                  <td>
-                    {window.web3.utils.fromWei(
-                      product.price.toString(),
-                      "Ether"
-                    )}{" "}
-                    ETH
-                  </td>
-                  <td>{product.owner}</td>
-                  <td>
-                    {!product.purchased ? (
-                      <button
-                        className="btn btn-primary"
-                        name={product.id}
-                        value={product.price}
-                        onClick={event => {
-                          console.log("clicked");
-                          this.props.purchaseProduct(
-                            event.target.name,
-                            event.target.value
-                          );
-                        }}
-                      >
-                        Buy
-                      </button>
-                    ) : null}
-                  </td>
+                  <th scope="row">{sensor.id.toString()}</th>
+                  <td>{sensor.name}</td>
+                  <td>{sensor.lat}</td>
+                  <td>{sensor.lon}</td>
+                  <td>{sensor.endpoint}</td>
+                  <td>{sensor.owner}</td>
                 </tr>
               );
             })}
