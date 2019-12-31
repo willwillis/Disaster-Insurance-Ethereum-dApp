@@ -6,7 +6,13 @@ import Lassie from "../abis/Lassie.json";
 import Navbar from "./Navbar";
 import About from "./About";
 import Main from "./Main";
-// import Trends from "./Trends";
+import Map from "./Map";
+import Guage from "./Guage";
+import ListSensors from "./ListSensors";
+import ListSensorsNarrow from "./ListSensorsNarrow";
+import { Container, Row, Col, Alert, Image } from "react-bootstrap";
+import AddSensor from "./AddSensor";
+import Trends from "./Trends";
 
 class App extends Component {
   async componentWillMount() {
@@ -120,19 +126,31 @@ class App extends Component {
                   <p className="text-center">Loading...</p>
                 </div>
               ) : (
-                <Main
-                  sensors={this.state.sensors}
-                  createSensor={this.createSensor}
-                  contractState={this.state.contractState}
-                  responderState={this.state.responderState}
-                  smokeThresholdBreached={this.state.smokeThresholdBreached}
-                  temperatureThresholdBreached={
-                    this.state.temperatureThresholdBreached
-                  }
-                />
+                <>
+                  <Row>
+                    <Col xs={12} lg={8}>
+                      <Guage
+                        createSensor={this.createSensor}
+                        contractState={this.state.contractState}
+                        responderState={this.state.responderState}
+                        smokeThresholdBreached={
+                          this.state.smokeThresholdBreached
+                        }
+                        temperatureThresholdBreached={
+                          this.state.temperatureThresholdBreached
+                        }
+                      />{" "}
+                      <Map />
+                      <Trends />
+                    </Col>
+                    <Col xs={12} lg={4}>
+                      <ListSensorsNarrow sensors={this.state.sensors} />
+                      <AddSensor />
+                    </Col>
+                  </Row>
+                </>
               )}
             </main>
-            {/* <Trends /> */}
           </div>
         </div>
       </div>

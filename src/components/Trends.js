@@ -6,7 +6,7 @@ class Trends extends Component {
     console.log(this.props);
     return (
       <div>
-        <ScriptTag type="text/javascript">
+        {/* <ScriptTag type="text/javascript">
           {trends.embed.renderExploreWidget(
             "TIMESERIES",
             {
@@ -21,7 +21,7 @@ class Trends extends Component {
               guestPath: "https://trends.google.com:443/trends/embed/"
             }
           )}
-        </ScriptTag>
+        </ScriptTag> */}
         <div id="TIMESERIES"></div>
       </div>
     );
