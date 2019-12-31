@@ -1,0 +1,1 @@
+{"version":3,"sources":["/home/will/code/lassie/src/components/App.css","main.655b1ab1.chunk.css"],"names":[],"mappings":"AACA,aACE,wBCCF","file":"main.655b1ab1.chunk.css","sourcesContent":["/* Styles go here */\n.navbar-dark {\n  background-color: #fd5566;\n}\n","/* Styles go here */\n.navbar-dark {\n  background-color: #fd5566;\n}\n\n"]}
