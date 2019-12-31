@@ -1,8 +1,9 @@
 {
-  "name": "eth-marketplace",
+  "name": "lassie",
   "version": "0.1.0",
-  "description": "An Ethereum Marketplace",
-  "author": "gregory@dappuniversity.com",
+  "description": "Learning Solidity (Ethereum Smart Contracts) and Web3",
+  "author": "Will Willis",
+  "homepage": "https://willwillis.github.io/Disaster-Insurance-Ethereum-dApp/"
   "dependencies": {
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
