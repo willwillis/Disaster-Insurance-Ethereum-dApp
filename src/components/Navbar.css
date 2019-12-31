@@ -1,4 +1,8 @@
 /* Styles go here */
-.navbar-dark {
+#heady {
+  background-color: #fd5566;
+}
+
+.bg-dark {
   background-color: #fd5566;
 }

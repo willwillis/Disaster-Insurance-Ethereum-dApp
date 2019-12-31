@@ -11,7 +11,7 @@ class Navbar extends Component {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Lassie Disaster Response
+          🔥 Lassie Disaster Response
         </a>
         <ul className="navbar-nav px-3">
           <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">

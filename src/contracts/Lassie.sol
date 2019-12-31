@@ -48,8 +48,8 @@ contract Lassie {
     uint256 public responderRespondAmount = 2 wei;
 
     // SENSOR VARIABLES
-    bool smokeThresholdBreached;        // false = No Smoke    true = There's SMOKE
-    bool temperatureThresholdBreached;  // false = Temp OK     true = Too HOT
+    bool public smokeThresholdBreached;        // false = No Smoke    true = There's SMOKE
+    bool public temperatureThresholdBreached;  // false = Temp OK     true = Too HOT
 
     // ADDRESSES
     address contractManager; //= 0x443B02B822a19BB96e64a9A673EdAA4027eD9b62;  // That's US, this is OUR account

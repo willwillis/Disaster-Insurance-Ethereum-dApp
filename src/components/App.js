@@ -6,10 +6,10 @@ import Lassie from "../abis/Lassie.json";
 import Navbar from "./Navbar";
 import About from "./About";
 import Main from "./Main";
+// import Trends from "./Trends";
 
 class App extends Component {
   async componentWillMount() {
-    // window.alert('Inside of componentWillMOunt')
     await this.loadWeb3();
     await this.loadBlockchainData();
   }
@@ -48,8 +48,28 @@ class App extends Component {
           sensors: [...this.state.sensors, sensor]
         });
       }
-      console.log(this.state.sensors);
+      const contractState = await lassie.methods.contractState().call();
+      this.setState({ contractState });
 
+      const responderState = await lassie.methods.responderState().call();
+      this.setState({ responderState });
+
+      const smokeThresholdBreached = await lassie.methods
+        .smokeThresholdBreached()
+        .call();
+      this.setState({ smokeThresholdBreached });
+
+      const temperatureThresholdBreached = await lassie.methods
+        .temperatureThresholdBreached()
+        .call();
+      this.setState({ temperatureThresholdBreached });
+
+      const name = await lassie.methods.name().call();
+      this.setState({ name });
+
+      console.log("Sensors");
+      console.log(this.state.sensors);
+      console.log("contractState" + this.state.contractState);
       this.setState({ loading: false });
     } else {
       window.alert("Lassie contract not deployed to detected network.");
@@ -62,7 +82,15 @@ class App extends Component {
       account: "",
       sensorCount: 0,
       sensors: [],
-      loading: true
+      loading: true,
+      blockNumber: "",
+      contractState: "",
+      responderState: "",
+      smokeThreshold: 1,
+      tempThreshold: 150,
+      smokeThresholdBreached: "",
+      temperatureThresholdBreached: "",
+      name: ""
     };
 
     this.createSensor = this.createSensor.bind(this);
@@ -79,22 +107,12 @@ class App extends Component {
       });
   }
 
-  //   purchaseSensor(id, price) {
-  //     this.setState({ loading: true });
-  //     this.state.lassie.methods
-  //       .purchaseSensor(id)
-  //       .send({ from: this.state.account, value: price })
-  //       .once("receipt", receipt => {
-  //         this.setState({ loading: false });
-  //       });
-  //   }
-
   render() {
     return (
       <div>
         <Navbar account={this.state.account} />
         <About />
-        <div className="container-fluid mt-5">
+        <div className="container-fluid mt-0">
           <div className="row">
             <main role="main" className="col-lg-12 d-flex">
               {this.state.loading ? (
@@ -105,9 +123,16 @@ class App extends Component {
                 <Main
                   sensors={this.state.sensors}
                   createSensor={this.createSensor}
+                  contractState={this.state.contractState}
+                  responderState={this.state.responderState}
+                  smokeThresholdBreached={this.state.smokeThresholdBreached}
+                  temperatureThresholdBreached={
+                    this.state.temperatureThresholdBreached
+                  }
                 />
               )}
             </main>
+            {/* <Trends /> */}
           </div>
         </div>
       </div>

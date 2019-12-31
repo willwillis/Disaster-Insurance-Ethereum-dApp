@@ -1,6 +1,7 @@
+import { Container, Row, Col } from "react-bootstrap";
 import React, { Component } from "react";
 
-class About extends Component {
+class Guage extends Component {
   render() {
     return (
       <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto ">
@@ -10,4 +11,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default Guage;
