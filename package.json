@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Learning Solidity (Ethereum Smart Contracts) and Web3",
   "author": "Will Willis",
-  "homepage": "https://willwillis.github.io/Disaster-Insurance-Ethereum-dApp/"
+  "homepage": "https://willwillis.github.io/Disaster-Insurance-Ethereum-dApp/",
   "dependencies": {
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
@@ -15,6 +15,7 @@
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "chai-bignumber": "3.0.0",
+    "gh-pages": "^2.1.1",
     "react": "16.8.4",
     "react-bootstrap": "1.0.0-beta.5",
     "react-dom": "16.8.4",
@@ -25,6 +26,8 @@
     "web3": "1.0.0-beta.55"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
