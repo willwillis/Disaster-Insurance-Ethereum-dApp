@@ -13,6 +13,7 @@ import ListSensorsNarrow from "./ListSensorsNarrow";
 import { Container, Row, Col, Alert, Image } from "react-bootstrap";
 import AddSensor from "./AddSensor";
 import Trends from "./Trends";
+import MapBox from "./MapBox";
 
 class App extends Component {
   async componentWillMount() {
@@ -139,8 +140,8 @@ class App extends Component {
                         temperatureThresholdBreached={
                           this.state.temperatureThresholdBreached
                         }
-                      />{" "}
-                      <Map />
+                      />
+                      <MapBox sensors={this.state.sensors} />
                       <Trends />
                     </Col>
                     <Col xs={12} lg={4}>
