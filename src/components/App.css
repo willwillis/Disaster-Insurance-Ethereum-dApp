@@ -2,3 +2,23 @@
 .navbar-dark {
   background-color: #fd5566;
 }
+
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.full-width {
+  padding-left: 0;
+  padding-right: 0;
+}
+.full-width .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+.full-width .col-md-12 {
+  padding-left: 0;
+  padding-right: 0;
+}

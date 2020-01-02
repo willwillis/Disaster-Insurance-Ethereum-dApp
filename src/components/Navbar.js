@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import NetworkDetails from "./NetworkDetails";
+import Example from "./Example";
 
 class Navbar extends Component {
   render() {
@@ -18,6 +20,10 @@ class Navbar extends Component {
             <small className="text-white">
               <span id="account">Your Account: {this.props.account}</span>
             </small>
+            {/* <NetworkDetails
+              networkDataAddress={this.props.networkDataAddress}
+            /> */}
+            <Example />
           </li>
         </ul>
       </nav>

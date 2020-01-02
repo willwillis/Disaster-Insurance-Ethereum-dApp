@@ -14,6 +14,7 @@ import { Container, Row, Col, Alert, Image } from "react-bootstrap";
 import AddSensor from "./AddSensor";
 import Trends from "./Trends";
 import MapBox from "./MapBox";
+import NetworkDetails from "./NetworkDetails";
 
 class App extends Component {
   async componentWillMount() {
@@ -55,6 +56,9 @@ class App extends Component {
           sensors: [...this.state.sensors, sensor]
         });
       }
+      const networkDataAddress = networkData.address;
+      this.setState({ networkDataAddress });
+
       const contractState = await lassie.methods.contractState().call();
       this.setState({ contractState });
 
@@ -97,7 +101,8 @@ class App extends Component {
       tempThreshold: 150,
       smokeThresholdBreached: "",
       temperatureThresholdBreached: "",
-      name: ""
+      name: "",
+      networkDataAddress: ""
     };
 
     this.createSensor = this.createSensor.bind(this);
@@ -117,43 +122,38 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar account={this.state.account} />
+        <Navbar
+          account={this.state.account}
+          networkDataAddress={this.state.networkDataAddress}
+        />
         <About />
-        <div className="container-fluid mt-0">
-          <div className="row">
-            <main role="main" className="col-lg-12 d-flex">
-              {this.state.loading ? (
-                <div id="loader" className="text-center">
-                  <p className="text-center">Loading...</p>
-                </div>
-              ) : (
-                <>
-                  <Row>
-                    <Col xs={12} lg={8}>
-                      <Guage
-                        createSensor={this.createSensor}
-                        contractState={this.state.contractState}
-                        responderState={this.state.responderState}
-                        smokeThresholdBreached={
-                          this.state.smokeThresholdBreached
-                        }
-                        temperatureThresholdBreached={
-                          this.state.temperatureThresholdBreached
-                        }
-                      />
-                      <MapBox sensors={this.state.sensors} />
-                      <Trends />
-                    </Col>
-                    <Col xs={12} lg={4}>
-                      <ListSensorsNarrow sensors={this.state.sensors} />
-                      <AddSensor />
-                    </Col>
-                  </Row>
-                </>
-              )}
-            </main>
+        {this.state.loading ? (
+          <div id="loader" className="text-center">
+            <p className="text-center">Loading...</p>
           </div>
-        </div>
+        ) : (
+          <>
+            <Row>
+              <Col xs={12} lg={9}>
+                <Guage
+                  createSensor={this.createSensor}
+                  contractState={this.state.contractState}
+                  responderState={this.state.responderState}
+                  smokeThresholdBreached={this.state.smokeThresholdBreached}
+                  temperatureThresholdBreached={
+                    this.state.temperatureThresholdBreached
+                  }
+                />
+                <MapBox sensors={this.state.sensors} />
+                <Trends />
+              </Col>
+              <Col xs={12} lg={3}>
+                <ListSensorsNarrow sensors={this.state.sensors} />
+                <AddSensor />
+              </Col>
+            </Row>
+          </>
+        )}
       </div>
     );
   }
