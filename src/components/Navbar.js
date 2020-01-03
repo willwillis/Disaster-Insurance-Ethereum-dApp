@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import NetworkDetails from "./NetworkDetails";
 import Example from "./Example";
-
+// Thank you https://appdividend.com/2018/03/30/react-bootstrap-modal-example-tutorial/
 class Navbar extends Component {
   render() {
     console.log(this.props);
+    const networkDataAddress = this.props.networkDataAddress;
+
     return (
       <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a
@@ -20,10 +21,14 @@ class Navbar extends Component {
             <small className="text-white">
               <span id="account">Your Account: {this.props.account}</span>
             </small>
-            {/* <NetworkDetails
-              networkDataAddress={this.props.networkDataAddress}
-            /> */}
-            <Example />
+            &nbsp;{" "}
+            <Example
+              networkDataAddress={networkDataAddress}
+              yourAccount={this.props.account}
+              contractName={this.props.contractName}
+              networkID={this.props.networkID}
+              blockNumber={this.props.blockNumber}
+            />
           </li>
         </ul>
       </nav>

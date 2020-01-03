@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 
 class AddSensor extends Component {
+  //   createSensor(name, lat, lon, endpoint) {
+  //     this.setState({ loading: true });
+  //     this.state.lassie.methods
+  //       .createSensor(name, lat, lon, endpoint)
+  //       .send({ from: this.state.account })
+  //       .once("receipt", receipt => {
+  //         this.setState({ loading: false });
+  //       });
+  //   }
+
   render() {
     return (
       <>

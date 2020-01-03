@@ -17,7 +17,7 @@ class Guage extends Component {
       <>
         <h2>Smart Contract Overview</h2>
         <Alert variant={"secondary"}>
-          <Container>
+          <Container fluid>
             <Row>
               <Col lg={6}>
                 <h3 class="text-center">Contract Parties</h3>

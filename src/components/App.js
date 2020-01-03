@@ -5,16 +5,13 @@ import "./App.css";
 import Lassie from "../abis/Lassie.json";
 import Navbar from "./Navbar";
 import About from "./About";
-import Main from "./Main";
-import Map from "./Map";
 import Guage from "./Guage";
-import ListSensors from "./ListSensors";
+// import ListSensors from "./ListSensors";
 import ListSensorsNarrow from "./ListSensorsNarrow";
 import { Container, Row, Col, Alert, Image } from "react-bootstrap";
 import AddSensor from "./AddSensor";
 import Trends from "./Trends";
 import MapBox from "./MapBox";
-import NetworkDetails from "./NetworkDetails";
 
 class App extends Component {
   async componentWillMount() {
@@ -43,6 +40,10 @@ class App extends Component {
     this.setState({ account: accounts[0] });
     const networkId = await web3.eth.net.getId();
     const networkData = Lassie.networks[networkId];
+    this.setState({ networkID: networkId });
+    const blockNumber = await web3.eth.getBlockNumber();
+    console.log("blockNumber: " + blockNumber);
+    this.setState({ blockNumber });
     if (networkData) {
       // window.alert('loadBlockChainData ... networkData is truthy...')
       const lassie = web3.eth.Contract(Lassie.abi, networkData.address);
@@ -102,13 +103,14 @@ class App extends Component {
       smokeThresholdBreached: "",
       temperatureThresholdBreached: "",
       name: "",
-      networkDataAddress: ""
+      networkDataAddress: "",
+      networkId: ""
     };
 
     this.createSensor = this.createSensor.bind(this);
-    //this.purchaseSensor = this.purchaseSensor.bind(this);
   }
 
+  // moved this logic to AddSensor.js COmponent.
   createSensor(name, lat, lon, endpoint) {
     this.setState({ loading: true });
     this.state.lassie.methods
@@ -125,6 +127,9 @@ class App extends Component {
         <Navbar
           account={this.state.account}
           networkDataAddress={this.state.networkDataAddress}
+          contractName={this.state.name}
+          networkID={this.state.networkID}
+          blockNumber={this.state.blockNumber}
         />
         <About />
         {this.state.loading ? (
@@ -149,7 +154,74 @@ class App extends Component {
               </Col>
               <Col xs={12} lg={3}>
                 <ListSensorsNarrow sensors={this.state.sensors} />
-                <AddSensor />
+                {/* <AddSensor /> */}
+                <h2>Add a Sensor</h2>
+                <form
+                  onSubmit={event => {
+                    event.preventDefault();
+                    const name = this.sensorName.value;
+                    // const price = window.web3.utils.toWei(
+                    //   this.sensorPrice.value.toString(),
+                    //   "Ether"
+                    // );
+                    const lat = this.sensorLat.value;
+                    const lon = this.sensorLon.value;
+                    const endpoint = this.sensorEndpoint.value;
+                    this.createSensor(name, lat, lon, endpoint);
+                  }}
+                >
+                  <div className="form-group mr-sm-2">
+                    <input
+                      id="sensorName"
+                      type="text"
+                      ref={input => {
+                        this.sensorName = input;
+                      }}
+                      className="form-control"
+                      placeholder="Sensor Name"
+                      required
+                    />
+                  </div>
+                  <div className="form-group mr-sm-2">
+                    <input
+                      id="sensorLat"
+                      type="text"
+                      ref={input => {
+                        this.sensorLat = input;
+                      }}
+                      className="form-control"
+                      placeholder="Sensor Latitude"
+                      required
+                    />
+                  </div>
+                  <div className="form-group mr-sm-2">
+                    <input
+                      id="sensorLon"
+                      type="text"
+                      ref={input => {
+                        this.sensorLon = input;
+                      }}
+                      className="form-control"
+                      placeholder="Sensor Longitude"
+                      required
+                    />
+                  </div>
+                  <div className="form-group mr-sm-2">
+                    <input
+                      id="sensorEndpoint"
+                      type="text"
+                      ref={input => {
+                        this.sensorEndpoint = input;
+                      }}
+                      className="form-control"
+                      placeholder="AWS Endpoint"
+                      required
+                    />
+                  </div>
+                  <button type="submit" className="btn btn-primary">
+                    Add Sensor
+                  </button>
+                </form>
               </Col>
             </Row>
           </>
