@@ -1,16 +1,22 @@
 # Project Steps
 
-1. git clone, etc..
+1. `git clone git@github.com:willwillis/Disaster-Insurance-Ethereum-dApp.git`
+2. `cd Disaster-Insurance-Ethereum-dApp`
 
-# Contract Steps
+# Compile Solidity Smart Contract
 
 1. `truffle compile` to compile contracts in this project
 2. `truffle migrate`
 
-# Front end Steps
+# Install node dependencies for the React front-end
 
 1. `npm install`
 2. `npm run start`
+
+# Build Project and Deploy to Github Pages
+
+1. `npm run build`
+2. `npm run deploy`
 
 # Technologies used in this Project
 
