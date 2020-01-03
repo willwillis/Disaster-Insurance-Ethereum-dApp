@@ -11,7 +11,7 @@ import ListSensorsNarrow from "./ListSensorsNarrow";
 import { Container, Row, Col, Alert, Image } from "react-bootstrap";
 import AddSensor from "./AddSensor";
 import Trends from "./Trends";
-import MapBox from "./MapBox";
+import GMap from "./GMap";
 
 class App extends Component {
   async componentWillMount() {
@@ -104,7 +104,11 @@ class App extends Component {
       temperatureThresholdBreached: "",
       name: "",
       networkDataAddress: "",
-      networkId: ""
+      networkId: "",
+      mapCenter: {
+        lat: 37.85,
+        lng: -120.083333
+      }
     };
 
     this.createSensor = this.createSensor.bind(this);
@@ -149,7 +153,11 @@ class App extends Component {
                     this.state.temperatureThresholdBreached
                   }
                 />
-                <MapBox sensors={this.state.sensors} />
+                <GMap
+                  sensors={this.state.sensors}
+                  center={this.state.mapCenter}
+                  zoom={7}
+                />
                 <Trends />
               </Col>
               <Col xs={12} lg={3}>

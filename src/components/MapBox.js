@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
 const Map = ReactMapboxGl({
-  accessToken:
-    "pk.eyJ1Ijoid2lsbHdpbGxpcyIsImEiOiJjanp2d2Z4aDcwMHFmM25wem95a3o3bzhiIn0.KcQntwKgiKyyzQmAn5qQ7Q",
+  accessToken: "pk..",
   center: [37.85, -120.083333],
   zoom: [11]
 });
