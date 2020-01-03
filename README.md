@@ -14,6 +14,8 @@
 
 # Technologies used in this Project
 
+![TechStack](./public/TechStack.png)
+
 1. Ethereum Blockchain
 2. Ganache
 3. Truffle
@@ -24,9 +26,6 @@
 8. AWS DynamoDB
 9. Google Cloud Platform - Maps
 10. React
-    - Web3
-    - Bootstrap
-    - Google Maps
 11. npm
 12. yarn
 13. Python
@@ -37,4 +36,9 @@
 18. MetaMask
 19. GraphQL
 20. AWS Cognito
-21. ARduino
+21. Arduino
+22. HTML5
+23. CSS
+24. JavaScript
+25. Web3
+26. Bootstrap
