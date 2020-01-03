@@ -5,6 +5,7 @@ import {
   responderStateToString,
   thresholdToString
 } from "./Utils";
+
 import GaugeChart from "react-gauge-chart";
 
 const chartStyle = {
@@ -15,7 +16,7 @@ class Guage extends Component {
   render() {
     return (
       <>
-        <h2>Smart Contract Overview</h2>
+        {/* <h2>Contract Overview</h2> */}
         <Alert variant={"secondary"}>
           <Container fluid>
             <Row>
@@ -28,7 +29,7 @@ class Guage extends Component {
             </Row>
             <Row>
               <Col xs={12} lg={3}>
-                <h5 class="text-center">Manager State</h5>
+                <h5 class="text-center">Lassie Insurance Status</h5>
                 <GaugeChart
                   id="gauge-chart1"
                   nrOfLevels={3}
@@ -41,7 +42,7 @@ class Guage extends Component {
                 />
               </Col>
               <Col xs={12} lg={3}>
-                <h5 class="text-center">Response Team</h5>
+                <h5 class="text-center">Fire Defense Co. Status</h5>
                 <GaugeChart
                   id="gauge-chart2"
                   nrOfLevels={3}

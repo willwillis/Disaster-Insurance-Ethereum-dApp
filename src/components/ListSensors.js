@@ -4,7 +4,8 @@ class ListSensors extends Component {
   render() {
     return (
       <>
-        <h2>Full Sensor List</h2>
+        <br />
+        <h4 className="">Full Sensor List</h4>
         <table className="table">
           <thead>
             <tr>

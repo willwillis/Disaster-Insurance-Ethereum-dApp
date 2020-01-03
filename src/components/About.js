@@ -4,7 +4,14 @@ class About extends Component {
   render() {
     return (
       <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto ">
-        <h1>Wild Fire Smart Contract Response</h1>
+        <h1>
+          Wild Fire Smart Contract &nbsp;
+          <small class=".font-weight-normal">
+            <small>
+              <small>Between The State of CA &amp; Fire Defense Co.</small>
+            </small>
+          </small>
+        </h1>
       </div>
     );
   }

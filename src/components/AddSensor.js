@@ -14,7 +14,7 @@ class AddSensor extends Component {
   render() {
     return (
       <>
-        <h2>Add New Sensor</h2>
+        <h4>Add New Sensor</h4>
         <form
           onSubmit={event => {
             event.preventDefault();

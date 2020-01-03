@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 import About from "./About";
 import Guage from "./Guage";
 // import ListSensors from "./ListSensors";
-import ListSensorsNarrow from "./ListSensorsNarrow";
+import ListTopSensors from "./ListTopSensors";
 import { Container, Row, Col, Alert, Image } from "react-bootstrap";
 import AddSensor from "./AddSensor";
 import Trends from "./Trends";
@@ -161,7 +161,9 @@ class App extends Component {
                 <Trends />
               </Col>
               <Col xs={12} lg={3}>
-                <ListSensorsNarrow sensors={this.state.sensors} />
+                <ListTopSensors
+                  sensors={this.state.sensors.slice(-3).reverse()}
+                />
                 <AddSensor createSensor={this.createSensor} />
               </Col>
             </Row>
