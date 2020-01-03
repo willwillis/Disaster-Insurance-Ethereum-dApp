@@ -4,7 +4,7 @@ class ListSensors extends Component {
   render() {
     return (
       <>
-        <h2>Sensor List</h2>
+        <h2>Full Sensor List</h2>
         <table className="table">
           <thead>
             <tr>
@@ -12,7 +12,7 @@ class ListSensors extends Component {
               <th scope="col">Name</th>
               <th scope="col">Lat</th>
               <th scope="col">Lon</th>
-              <th scope="col">Endpoint</th>
+              <th scope="col">IoT Endpoint</th>
               <th scope="col">Owner</th>
             </tr>
           </thead>

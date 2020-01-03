@@ -4,7 +4,7 @@ class ListSensorsNarrow extends Component {
   render() {
     return (
       <>
-        <h2>Sensor List</h2>
+        <h2>Active Sensors</h2>
         <table className="table">
           <thead>
             <tr>

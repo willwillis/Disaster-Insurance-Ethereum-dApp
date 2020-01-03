@@ -12,6 +12,7 @@ import { Container, Row, Col, Alert, Image } from "react-bootstrap";
 import AddSensor from "./AddSensor";
 import Trends from "./Trends";
 import GMap from "./GMap";
+import ListSensors from "./ListSensors";
 
 class App extends Component {
   async componentWillMount() {
@@ -145,7 +146,6 @@ class App extends Component {
             <Row>
               <Col xs={12} lg={9}>
                 <Guage
-                  createSensor={this.createSensor}
                   contractState={this.state.contractState}
                   responderState={this.state.responderState}
                   smokeThresholdBreached={this.state.smokeThresholdBreached}
@@ -162,74 +162,13 @@ class App extends Component {
               </Col>
               <Col xs={12} lg={3}>
                 <ListSensorsNarrow sensors={this.state.sensors} />
-                {/* <AddSensor /> */}
-                <h2>Add a Sensor</h2>
-                <form
-                  onSubmit={event => {
-                    event.preventDefault();
-                    const name = this.sensorName.value;
-                    // const price = window.web3.utils.toWei(
-                    //   this.sensorPrice.value.toString(),
-                    //   "Ether"
-                    // );
-                    const lat = this.sensorLat.value;
-                    const lon = this.sensorLon.value;
-                    const endpoint = this.sensorEndpoint.value;
-                    this.createSensor(name, lat, lon, endpoint);
-                  }}
-                >
-                  <div className="form-group mr-sm-2">
-                    <input
-                      id="sensorName"
-                      type="text"
-                      ref={input => {
-                        this.sensorName = input;
-                      }}
-                      className="form-control"
-                      placeholder="Sensor Name"
-                      required
-                    />
-                  </div>
-                  <div className="form-group mr-sm-2">
-                    <input
-                      id="sensorLat"
-                      type="text"
-                      ref={input => {
-                        this.sensorLat = input;
-                      }}
-                      className="form-control"
-                      placeholder="Sensor Latitude"
-                      required
-                    />
-                  </div>
-                  <div className="form-group mr-sm-2">
-                    <input
-                      id="sensorLon"
-                      type="text"
-                      ref={input => {
-                        this.sensorLon = input;
-                      }}
-                      className="form-control"
-                      placeholder="Sensor Longitude"
-                      required
-                    />
-                  </div>
-                  <div className="form-group mr-sm-2">
-                    <input
-                      id="sensorEndpoint"
-                      type="text"
-                      ref={input => {
-                        this.sensorEndpoint = input;
-                      }}
-                      className="form-control"
-                      placeholder="AWS Endpoint"
-                      required
-                    />
-                  </div>
-                  <button type="submit" className="btn btn-primary">
-                    Add Sensor
-                  </button>
-                </form>
+                <AddSensor createSensor={this.createSensor} />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                {" "}
+                <ListSensors sensors={this.state.sensors} />
               </Col>
             </Row>
           </>
