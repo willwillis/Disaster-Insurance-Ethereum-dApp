@@ -13,6 +13,3 @@
 2. `npm run start`
 
 # Credits
-
-1. Logo https://dribbble.com/shots/6654738-Fire-Wolf-LOGO
-2. Inspiration for the dApp ...
