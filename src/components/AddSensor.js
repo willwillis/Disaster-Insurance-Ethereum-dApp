@@ -1,16 +1,6 @@
 import React, { Component } from "react";
 
 class AddSensor extends Component {
-  //   createSensor(name, lat, lon, endpoint) {
-  //     this.setState({ loading: true });
-  //     this.state.lassie.methods
-  //       .createSensor(name, lat, lon, endpoint)
-  //       .send({ from: this.state.account })
-  //       .once("receipt", receipt => {
-  //         this.setState({ loading: false });
-  //       });
-  //   }
-
   render() {
     return (
       <>
@@ -19,10 +9,7 @@ class AddSensor extends Component {
           onSubmit={event => {
             event.preventDefault();
             const name = this.sensorName.value;
-            // const price = window.web3.utils.toWei(
-            //   this.sensorPrice.value.toString(),
-            //   "Ether"
-            // );
+
             const lat = this.sensorLat.value;
             const lon = this.sensorLon.value;
             const endpoint = this.sensorEndpoint.value;
