@@ -39,6 +39,7 @@ class Guage extends Component {
                   formatTextValue={value =>
                     contractStateToString(this.props.contractState)
                   }
+                  animDelay={6700}
                 />
               </Col>
               <Col xs={12} lg={3}>
@@ -52,7 +53,7 @@ class Guage extends Component {
                   formatTextValue={value =>
                     responderStateToString(this.props.responderState)
                   }
-                  animDelay={1000}
+                  animDelay={8000}
                 />
               </Col>
 
@@ -65,7 +66,7 @@ class Guage extends Component {
                   nrOfLevels={2}
                   textColor="black"
                   formatTextValue={value => "Below Threshold"}
-                  animDelay={500}
+                  animDelay={5000}
                 />
               </Col>
 

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ScriptTag from "react-script-tag";
 
 class Trends extends Component {
   render() {

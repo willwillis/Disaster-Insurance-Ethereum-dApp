@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
-
+import Marker from "./Marker";
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const API_KEY = process.env.GOOGLE_MAP_API_KEY;
 
@@ -64,18 +64,11 @@ class SimpleMap extends Component {
         >
           {this.props.sensors.map((sensor, key) => {
             return (
-              //   <tr key={key}>
-              //     <th scope="row">{sensor.id.toString()}</th>
-              //     <td>{sensor.name}</td>
-              //     <td>{sensor.lat}</td>
-              //     <td>{sensor.lon}</td>
-              //     <td>{sensor.endpoint}</td>
-              //     <td>{sensor.owner}</td>
-              //   </tr>
-              <AnyReactComponent
+              <Marker
                 lat={sensor.lat}
                 lng={sensor.lon}
-                text={sensor.name}
+                name={sensor.name}
+                color={"white"}
               />
             );
           })}

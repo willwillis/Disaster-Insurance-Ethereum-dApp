@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import Web3 from "web3";
-// import logo from "../logo.png";
 import "./App.css";
 import Lassie from "../abis/Lassie.json";
 import Navbar from "./Navbar";
 import About from "./About";
 import Guage from "./Guage";
-// import ListSensors from "./ListSensors";
 import ListTopSensors from "./ListTopSensors";
 import { Container, Row, Col, Alert, Image } from "react-bootstrap";
 import AddSensor from "./AddSensor";
 import Trends from "./Trends";
 import GMap from "./GMap";
 import ListSensors from "./ListSensors";
+import SiteFooter from "./SiteFooter";
+import IOTReadings from "./IOTReadings";
 
 class App extends Component {
   async componentWillMount() {
@@ -158,7 +158,6 @@ class App extends Component {
                   center={this.state.mapCenter}
                   zoom={7}
                 />
-                <Trends />
               </Col>
               <Col xs={12} lg={3}>
                 <ListTopSensors
@@ -173,6 +172,7 @@ class App extends Component {
                 <ListSensors sensors={this.state.sensors} />
               </Col>
             </Row>
+            <SiteFooter sensors={this.state.sensors} />
           </>
         )}
       </div>

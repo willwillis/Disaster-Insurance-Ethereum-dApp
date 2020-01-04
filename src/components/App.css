@@ -3,7 +3,11 @@
   background-color: #fd5566;
 }
 
-.container-fluid {
+/* .scroll-me {
+  height: 300px !important;
+  overflow: scroll;
+} */
+​ .container-fluid {
   padding-right: 0;
   padding-left: 0;
   margin-right: auto;
@@ -21,4 +25,32 @@
 .full-width .col-md-12 {
   padding-left: 0;
   padding-right: 0;
+}
+
+.marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  background-color: #000;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  &:hover {
+    z-index: 1;
+  }
+}
+
+.alpha-bg {
+  background: rgba(235, 235, 235, 0.781);
+
+  /* border-radius: 8px;
+  max-width: 400px;
+  min-width: 100px; */
+}
+
+.marker-text {
+  width: 200px;
 }
