@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Example from "./Example";
+import { FaRegUserCircle } from "react-icons/fa";
+
 // Thank you https://appdividend.com/2018/03/30/react-bootstrap-modal-example-tutorial/
 class Navbar extends Component {
   render() {
@@ -17,10 +19,13 @@ class Navbar extends Component {
         </a>
         <ul className="navbar-nav px-3">
           <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-            <small className="text-white">
-              <span id="account">Your Account: {this.props.account}</span>
-            </small>
-            &nbsp;{" "}
+            <span className="text-white">
+              <span id="account">
+                <FaRegUserCircle /> &nbsp;
+                <small>{this.props.account}</small>
+              </span>
+            </span>
+            &nbsp; &nbsp; &nbsp;
             <Example
               networkDataAddress={networkDataAddress}
               yourAccount={this.props.account}

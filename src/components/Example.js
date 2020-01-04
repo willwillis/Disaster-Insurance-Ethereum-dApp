@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-
+import { FaNetworkWired } from "react-icons/fa";
 export default class ModalComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -18,8 +18,8 @@ export default class ModalComponent extends React.Component {
   render() {
     return (
       <>
-        <Button className="btn-sm btn-secondary" onClick={this.toggle}>
-          Network Details
+        <Button className="btn-sm btn-outline-light" onClick={this.toggle}>
+          <FaNetworkWired />
         </Button>
 
         <Modal isOpen={this.state.modal}>

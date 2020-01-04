@@ -17,7 +17,7 @@ class Guage extends Component {
     return (
       <>
         {/* <h2>Contract Overview</h2> */}
-        <Alert variant={"secondary"}>
+        <Alert variant={""}>
           <Container fluid>
             <Row>
               <Col lg={6}>

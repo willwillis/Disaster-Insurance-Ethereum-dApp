@@ -13,7 +13,7 @@ import GMap from "./GMap";
 import ListSensors from "./ListSensors";
 import SiteFooter from "./SiteFooter";
 import IOTReadings from "./IOTReadings";
-
+import { FaNetworkWired } from "react-icons/fa";
 class App extends Component {
   async componentWillMount() {
     await this.loadWeb3();
@@ -129,20 +129,25 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar
-          account={this.state.account}
-          networkDataAddress={this.state.networkDataAddress}
-          contractName={this.state.name}
-          networkID={this.state.networkID}
-          blockNumber={this.state.blockNumber}
-        />
-        <About />
         {this.state.loading ? (
           <div id="loader" className="text-center">
-            <p className="text-center">Loading...</p>
+            <p className="text-center align-middle height-100">
+              <h1 className="bigger">
+                <FaNetworkWired />
+              </h1>
+              <h1>Connecting to Ethereum Network...</h1>
+            </p>
           </div>
         ) : (
           <>
+            <Navbar
+              account={this.state.account}
+              networkDataAddress={this.state.networkDataAddress}
+              contractName={this.state.name}
+              networkID={this.state.networkID}
+              blockNumber={this.state.blockNumber}
+            />
+            <About />
             <Row>
               <Col xs={12} lg={9}>
                 <Guage
@@ -159,7 +164,7 @@ class App extends Component {
                   zoom={7}
                 />
               </Col>
-              <Col xs={12} lg={3}>
+              <Col xs={12} lg={3} className={"p-3 mb-2 bg-light text-dark"}>
                 <ListTopSensors
                   sensors={this.state.sensors.slice(-3).reverse()}
                 />
