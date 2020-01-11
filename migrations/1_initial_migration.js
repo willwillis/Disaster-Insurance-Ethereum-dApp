@@ -1,5 +1,6 @@
 const Migrations = artifacts.require("Migrations");
 
-module.exports = function(deployer) {
+console.log("Running 1_initial_migration");
+module.exports = function(deployer, network) {
   deployer.deploy(Migrations);
 };

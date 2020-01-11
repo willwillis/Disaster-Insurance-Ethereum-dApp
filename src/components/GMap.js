@@ -6,9 +6,14 @@ const API_KEY = process.env.GOOGLE_MAP_API_KEY;
 
 class SimpleMap extends Component {
   static defaultProps = {
+    // center: { // California
+    //   lat: 37.85,
+    //   lng: -120.083333
+    // },
     center: {
-      lat: 37.85,
-      lng: -120.083333
+      // Australia
+      lat: -35.85,
+      lng: 148
     },
     zoom: 11
   };

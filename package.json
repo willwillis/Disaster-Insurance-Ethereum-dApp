@@ -29,6 +29,7 @@
     "react-social-icons": "^4.1.0",
     "reactstrap": "^8.2.0",
     "truffle": "5.0.5",
+    "truffle-hdwallet-provider": "^1.0.17",
     "typescript": "^3.7.4",
     "weather-icons-react": "^1.2.0",
     "web3": "1.0.0-beta.55"

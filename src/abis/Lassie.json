@@ -8007,6 +8007,108 @@
     "version": "0.5.12+commit.7709ece9.Emscripten.clang"
   },
   "networks": {
+    "4": {
+      "events": {
+        "0xd7a758a6b8adf656a8c2a7049436453ded6af08885a9d822891ca985de205477": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "lat",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "lon",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "endpoint",
+              "type": "string"
+            }
+          ],
+          "name": "SensorCreated",
+          "type": "event",
+          "signature": "0xd7a758a6b8adf656a8c2a7049436453ded6af08885a9d822891ca985de205477"
+        }
+      },
+      "links": {},
+      "address": "0x091FDeb7990D3E00d13c31b81841d56b33164AD7",
+      "transactionHash": "0x0241cc27c87d54567aefc0967d26d16d4058fa0bfa1077265cf518cc7c0e0462"
+    },
+    "42": {
+      "events": {
+        "0xd7a758a6b8adf656a8c2a7049436453ded6af08885a9d822891ca985de205477": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "lat",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "lon",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "endpoint",
+              "type": "string"
+            }
+          ],
+          "name": "SensorCreated",
+          "type": "event",
+          "signature": "0xd7a758a6b8adf656a8c2a7049436453ded6af08885a9d822891ca985de205477"
+        }
+      },
+      "links": {},
+      "address": "0xF094381e06eb46aF497a31D131de7D52688D249e",
+      "transactionHash": "0x294046cc581f2590a45e6958460c5fd577e3ef8f17e67cea05239265d99e5c82"
+    },
     "5777": {
       "events": {
         "0xd7a758a6b8adf656a8c2a7049436453ded6af08885a9d822891ca985de205477": {
@@ -8060,7 +8162,8 @@
     }
   },
   "schemaVersion": "3.0.20",
-  "updatedAt": "2019-12-31T04:37:09.974Z",
+  "updatedAt": "2020-01-07T01:11:41.518Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

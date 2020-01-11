@@ -6,14 +6,14 @@ import Navbar from "./Navbar";
 import About from "./About";
 import Guage from "./Guage";
 import ListTopSensors from "./ListTopSensors";
-import { Container, Row, Col, Alert, Image } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import AddSensor from "./AddSensor";
-import Trends from "./Trends";
 import GMap from "./GMap";
 import ListSensors from "./ListSensors";
 import SiteFooter from "./SiteFooter";
-import IOTReadings from "./IOTReadings";
 import { FaNetworkWired } from "react-icons/fa";
+import OverrideResponder from "./OverrideResponder";
+
 class App extends Component {
   async componentWillMount() {
     await this.loadWeb3();
@@ -107,12 +107,13 @@ class App extends Component {
       networkDataAddress: "",
       networkId: "",
       mapCenter: {
-        lat: 37.85,
-        lng: -120.083333
+        lat: -25.2744,
+        lng: 133.7751
       }
     };
 
     this.createSensor = this.createSensor.bind(this);
+    this.setResponderState = this.setResponderState.bind(this);
   }
 
   // moved this logic to AddSensor.js COmponent.
@@ -120,6 +121,16 @@ class App extends Component {
     this.setState({ loading: true });
     this.state.lassie.methods
       .createSensor(name, lat, lon, endpoint)
+      .send({ from: this.state.account })
+      .once("receipt", receipt => {
+        this.setState({ loading: false });
+      });
+  }
+
+  setResponderState(newInt) {
+    this.setState({ loading: true });
+    this.state.lassie.methods
+      .setResponderState(newInt)
       .send({ from: this.state.account })
       .once("receipt", receipt => {
         this.setState({ loading: false });
@@ -161,7 +172,7 @@ class App extends Component {
                 <GMap
                   sensors={this.state.sensors}
                   center={this.state.mapCenter}
-                  zoom={7}
+                  zoom={4}
                 />
               </Col>
               <Col xs={12} lg={3} className={"p-3 mb-2 bg-light text-dark"}>
@@ -178,6 +189,13 @@ class App extends Component {
               </Col>
             </Row>
             <SiteFooter sensors={this.state.sensors} />
+            <Row>
+              <Col>
+                {" "}
+                <OverrideResponder setResponderState={this.setResponderState} />
+              </Col>
+              <Col></Col>
+            </Row>
           </>
         )}
       </div>

@@ -1,0 +1,6 @@
+Bogong Peaks Wilderness: -35.516	148.386  
+Sydney: -32.718	150.059
+melbourne area: -36.738	148.109
+Brisbane -26.95	152.844
+Palmer River: -16.067	144.726
+Perth : -32.06	115.795
