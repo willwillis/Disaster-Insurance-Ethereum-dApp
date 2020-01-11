@@ -1,0 +1,15 @@
+projects:
+  sensorview-lassie:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src/graphql
+        region: us-east-1
+        apiId: 7kd4fhzt7bhwthlx6bgeeyze5y
+        maxDepth: 2

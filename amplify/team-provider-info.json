@@ -1,0 +1,15 @@
+{
+    "lassiesync": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-disasterinsuranceeth-lassiesync-135541-authRole",
+            "UnauthRoleArn": "arn:aws:iam::379850538182:role/amplify-disasterinsuranceeth-lassiesync-135541-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::379850538182:role/amplify-disasterinsuranceeth-lassiesync-135541-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-disasterinsuranceeth-lassiesync-135541-deployment",
+            "UnauthRoleName": "amplify-disasterinsuranceeth-lassiesync-135541-unauthRole",
+            "StackName": "amplify-disasterinsuranceeth-lassiesync-135541",
+            "StackId": "arn:aws:cloudformation:us-east-1:379850538182:stack/amplify-disasterinsuranceeth-lassiesync-135541/5a7cf7a0-34ac-11ea-a445-12f4ed1177e6",
+            "AmplifyAppId": "d12cg454d6d4s2"
+        }
+    }
+}
