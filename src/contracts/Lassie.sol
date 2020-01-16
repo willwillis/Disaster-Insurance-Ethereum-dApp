@@ -23,6 +23,15 @@ contract Lassie {
         string endpoint
     );
     
+    event currentResponderState(
+        uint stateNum,
+        string sensorName
+    );
+
+    event somebodyGotPaid(
+        uint amount
+    );
+
     function createSensor(string memory _name, string memory _lat, string memory _lon, string memory _endpoint) public {
         // validate we got something...
         // TODO, actually validate...
@@ -54,49 +63,53 @@ contract Lassie {
     // ADDRESSES
     address contractManager; //= 0x443B02B822a19BB96e64a9A673EdAA4027eD9b62;  // That's US, this is OUR account
     address escrow    = address(this); // We PAY into this account (0x00786bBE030bB178693687c22ffCE593F51D904c)
-    address responder = 0x631A3f43ffA216f97B346C3F2C896853290F70bc;  // The Fire company
+    address responder = 0x00786bBE030bB178693687c22ffCE593F51D904c;  // The Fire company
 
     // Constructor code is only run when the contract
     // is created
-    constructor(string memory _name, uint8 _contractState, uint8 _responderState ) public {
+    constructor(string memory _name, uint8 _contractState, uint8 _responderState ) public payable {
         contractManager = msg.sender;
         contractState  = _contractState;
         responderState =  _responderState;
         name = _name;
         smokeThresholdBreached = false;
         temperatureThresholdBreached = false;
+        address(this).transfer(msg.value);
     }
 
     // interface for IoT Sensors (AWS)
     // @TODO Lock Down to Local Addy Later
     // @TODO accept a sensorID, and set state on Sensor
-    function setSmoke( bool _newVal) public {
+ function setSmoke( bool _newVal, string memory _sensorName) public {
         smokeThresholdBreached = _newVal;
-        if (smokeThresholdBreached == true){
-            setResponderState(2);
-            if (temperatureThresholdBreached == true) {
-                setResponderState(3);
+        if (temperatureThresholdBreached == true){
+            setResponderState(2,_sensorName);
+            if (smokeThresholdBreached == true) {
+                setResponderState(3,_sensorName);
             }
-        }
+        } 
     }
 
-    function setTemperature (bool _newVal) public {
+    function setTemperature (bool _newVal, string memory _sensorName) public {
         temperatureThresholdBreached = _newVal;
         if (smokeThresholdBreached == true){
-            setResponderState(2);
+            setResponderState(2,_sensorName);
             if (temperatureThresholdBreached == true) {
-                setResponderState(3);
+                setResponderState(3,_sensorName);
             }
         }
     }
-
+    
     function transferEther(uint _amount) public payable {
-        address(0x631A3f43ffA216f97B346C3F2C896853290F70bc).transfer(_amount);
+        address(0x00786bBE030bB178693687c22ffCE593F51D904c).transfer(_amount);
+        emit somebodyGotPaid(_amount);
     }
 
-    function setResponderState(uint8 _newState) private {
+    function setResponderState(uint8 _newState, string memory _sensorName) private {
         // @TODO add abi encoding
         responderState = _newState;
+
+        emit currentResponderState(_newState, _sensorName);
 
         if (responderState == 2) {
             contractState = 2;

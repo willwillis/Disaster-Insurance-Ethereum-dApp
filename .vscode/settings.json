@@ -4,6 +4,7 @@
   "solidity.solhintRules": {
     "avoid-sha3": "warn"
   },
+
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {

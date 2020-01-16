@@ -13,6 +13,8 @@ import ListSensors from "./ListSensors";
 import SiteFooter from "./SiteFooter";
 import { FaNetworkWired } from "react-icons/fa";
 import OverrideResponder from "./OverrideResponder";
+import AppSyncSensor from "./AppSyncSensor";
+import AppSyncSensorDos from "./AppSyncSensorDos"; // refactor || die($!)
 
 class App extends Component {
   async componentWillMount() {
@@ -194,7 +196,10 @@ class App extends Component {
                 {" "}
                 <OverrideResponder setResponderState={this.setResponderState} />
               </Col>
-              <Col></Col>
+              <Col>
+                <AppSyncSensor sensorName={"Pi4"}></AppSyncSensor>
+                <AppSyncSensorDos sensorName={"PiZero"}></AppSyncSensorDos>
+              </Col>
             </Row>
           </>
         )}
