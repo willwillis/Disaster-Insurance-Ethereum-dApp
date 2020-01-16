@@ -3,7 +3,9 @@ import { Container, Row, Col, Alert, Image } from "react-bootstrap";
 import {
   contractStateToString,
   responderStateToString,
-  thresholdToString
+  thresholdToString,
+  thresholdToValue,
+  contractToValue
 } from "./Utils";
 
 import GaugeChart from "react-gauge-chart";
@@ -33,7 +35,7 @@ class Guage extends Component {
                 <GaugeChart
                   id="gauge-chart1"
                   nrOfLevels={3}
-                  percent={0.15}
+                  percent={contractToValue(this.props.contractState)}
                   needleColor="#345243"
                   textColor="black"
                   formatTextValue={value =>
@@ -47,7 +49,7 @@ class Guage extends Component {
                 <GaugeChart
                   id="gauge-chart2"
                   nrOfLevels={3}
-                  percent={0.15}
+                  percent={contractToValue(this.props.responderState)}
                   needleColor="#345243"
                   textColor="black"
                   formatTextValue={value =>
@@ -61,11 +63,13 @@ class Guage extends Component {
                 <h5 class="text-center">Smoke Threshold</h5>
                 <GaugeChart
                   id="gauge-chart3"
-                  percent={0.1}
+                  percent={thresholdToValue(this.props.smokeThresholdBreached)}
                   colors={["#5BE12C", "#F5CD19", "#EA4228"]}
                   nrOfLevels={2}
                   textColor="black"
-                  formatTextValue={value => "Below Threshold"}
+                  formatTextValue={value =>
+                    thresholdToString(this.props.smokeThresholdBreached)
+                  }
                   animDelay={5000}
                 />
               </Col>
@@ -75,11 +79,15 @@ class Guage extends Component {
                 <GaugeChart
                   id="gauge-chart4"
                   nrOfLevels={2}
-                  percent={0.15}
+                  percent={thresholdToValue(
+                    this.props.temperatureThresholdBreached
+                  )}
                   needleColor="#345243"
                   colors={["#5BE12C", "#F5CD19", "#EA4228"]}
                   textColor="black"
-                  formatTextValue={value => "Below Threshold"}
+                  formatTextValue={value =>
+                    thresholdToString(this.props.temperatureThresholdBreached)
+                  }
                   animDelay={3000}
                 />
               </Col>

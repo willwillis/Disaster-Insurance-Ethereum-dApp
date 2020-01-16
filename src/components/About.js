@@ -8,9 +8,7 @@ class About extends Component {
           Wild Fire Smart Contract &nbsp;
           <small class=".font-weight-normal">
             <small>
-              <small>
-                between the State of California &amp; Fire Defense Co.
-              </small>
+              <small>{this.props.contractName}</small>
             </small>
           </small>
         </h1>

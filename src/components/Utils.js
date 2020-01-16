@@ -17,8 +17,20 @@ const responderStateMap = {
 };
 
 const thresholdMap = {
-  0: "Below Threshold",
-  1: "Above Threshold"
+  false: "Below Threshold",
+  true: "Above Threshold"
+};
+
+const thresholdIndicatorMap = {
+  false: 0.25,
+  true: 0.75
+};
+
+const contractStateIndicatorMap = {
+  1: 0.1,
+  2: 0.5,
+  3: 0.8,
+  4: 1
 };
 
 export const contractStateToString = theInput => {
@@ -31,6 +43,14 @@ export const responderStateToString = theInput => {
 
 export const thresholdToString = theInput => {
   return thresholdMap[theInput];
+};
+
+export const thresholdToValue = theInput => {
+  return thresholdIndicatorMap[theInput];
+};
+
+export const contractToValue = theInput => {
+  return contractStateIndicatorMap[theInput];
 };
 
 export const getRandomInt = (min, max) => {

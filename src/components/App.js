@@ -116,11 +116,13 @@ class App extends Component {
 
     this.createSensor = this.createSensor.bind(this);
     this.setResponderState = this.setResponderState.bind(this);
+    this.setTemp = this.setTemp.bind(this);
+    this.setSmoke = this.setSmoke.bind(this);
   }
 
   // moved this logic to AddSensor.js COmponent.
   createSensor(name, lat, lon, endpoint) {
-    this.setState({ loading: true });
+    //this.setState({ loading: true });
     this.state.lassie.methods
       .createSensor(name, lat, lon, endpoint)
       .send({ from: this.state.account })
@@ -130,12 +132,30 @@ class App extends Component {
   }
 
   setResponderState(newInt) {
-    this.setState({ loading: true });
+    //this.setState({ loading: true });
     this.state.lassie.methods
       .setResponderState(newInt)
       .send({ from: this.state.account })
       .once("receipt", receipt => {
         this.setState({ loading: false });
+      });
+  }
+
+  setSmoke(breachedBool, sensorName) {
+    this.state.lassie.methods
+      .setSmoke(breachedBool, sensorName)
+      .send({ from: this.state.account })
+      .once("receipt", receipt => {
+        this.setState({ loading: false, temperatureThresholdBreached: true });
+      });
+  }
+
+  setTemp(breachedBool, sensorName) {
+    this.state.lassie.methods
+      .setTemperature(breachedBool, sensorName)
+      .send({ from: this.state.account })
+      .once("receipt", receipt => {
+        this.setState({ loading: false, smokeThresholdBreached: true });
       });
   }
 
@@ -160,7 +180,7 @@ class App extends Component {
               networkID={this.state.networkID}
               blockNumber={this.state.blockNumber}
             />
-            <About />
+            <About contractName={this.state.name} />
             <Row>
               <Col xs={12} lg={9}>
                 <Guage
@@ -178,6 +198,25 @@ class App extends Component {
                 />
               </Col>
               <Col xs={12} lg={3} className={"p-3 mb-2 bg-light text-dark"}>
+                <Row>
+                  <Col>
+                    Smoke Threshold: 200
+                    <br />
+                    Temp Threshold: 40
+                  </Col>
+                </Row>
+                <Row>
+                  <AppSyncSensor
+                    sensorName={"Pi4"}
+                    setTemp={this.setTemp}
+                    setSmoke={this.setSmoke}
+                  ></AppSyncSensor>
+                  <AppSyncSensorDos
+                    sensorName={"PiZero"}
+                    setTemp={this.setTemp}
+                    setSmoke={this.setSmoke}
+                  ></AppSyncSensorDos>
+                </Row>
                 <ListTopSensors
                   sensors={this.state.sensors.slice(-3).reverse()}
                 />
@@ -196,10 +235,7 @@ class App extends Component {
                 {" "}
                 <OverrideResponder setResponderState={this.setResponderState} />
               </Col>
-              <Col>
-                <AppSyncSensor sensorName={"Pi4"}></AppSyncSensor>
-                <AppSyncSensorDos sensorName={"PiZero"}></AppSyncSensorDos>
-              </Col>
+              <Col></Col>
             </Row>
           </>
         )}

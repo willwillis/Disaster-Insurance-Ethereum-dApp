@@ -60,9 +60,15 @@ class AppSyncSensor extends Component {
             this.setState({
               temp: event.value.data.onUpdateSensor.temp
             });
+            if (this.temp > 40) {
+              this.props.setTemp(true, "Pi4");
+            }
             this.setState({
               smoke: event.value.data.onUpdateSensor.smoke
             });
+            if (this.smoke > 40) {
+              this.props.setSmoke(true, "Pi4");
+            }
           }
         }
       }
@@ -77,8 +83,8 @@ class AppSyncSensor extends Component {
     return (
       <Col>
         <h2 className="center">Pi4</h2>
-        <div>Temp: ({this.state.temp})</div>
-        <div>Smoke: ({this.state.smoke})</div>
+        <h3>Temp: ({this.state.temp})</h3>
+        <h3>Smoke: ({this.state.smoke})</h3>
       </Col>
     );
   }
