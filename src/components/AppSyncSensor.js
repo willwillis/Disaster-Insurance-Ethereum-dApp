@@ -60,13 +60,18 @@ class AppSyncSensor extends Component {
             this.setState({
               temp: event.value.data.onUpdateSensor.temp
             });
-            if (this.temp > 40) {
+            console.log(
+              "@ DEBUG @ TEMP IS: " + event.value.data.onUpdateSensor.temp
+            );
+
+            if (event.value.data.onUpdateSensor.temp > 40) {
+              console.log("@ DEBUG @ TEMP THRESHOLD BREACHED ----------");
               this.props.setTemp(true, "Pi4");
             }
             this.setState({
               smoke: event.value.data.onUpdateSensor.smoke
             });
-            if (this.smoke > 40) {
+            if (this.smoke > 200) {
               this.props.setSmoke(true, "Pi4");
             }
           }

@@ -210,11 +210,19 @@ class App extends Component {
                     sensorName={"Pi4"}
                     setTemp={this.setTemp}
                     setSmoke={this.setSmoke}
+                    smokeThresholdBreached={this.state.smokeThresholdBreached}
+                    temperatureThresholdBreached={
+                      this.state.temperatureThresholdBreached
+                    }
                   ></AppSyncSensor>
                   <AppSyncSensorDos
                     sensorName={"PiZero"}
                     setTemp={this.setTemp}
                     setSmoke={this.setSmoke}
+                    smokeThresholdBreached={this.state.smokeThresholdBreached}
+                    temperatureThresholdBreached={
+                      this.state.temperatureThresholdBreached
+                    }
                   ></AppSyncSensorDos>
                 </Row>
                 <ListTopSensors
