@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "a1f4410a3b83e4496589",
+    "revision": "9792ffee4c7e7f10620a",
     "url": "/Disaster-Insurance-Ethereum-dApp/static/css/main.dea47214.chunk.css"
   },
   {
-    "revision": "a1f4410a3b83e4496589",
-    "url": "/Disaster-Insurance-Ethereum-dApp/static/js/main.a1f4410a.chunk.js"
+    "revision": "9792ffee4c7e7f10620a",
+    "url": "/Disaster-Insurance-Ethereum-dApp/static/js/main.9792ffee.chunk.js"
   },
   {
     "revision": "3dc53065b164d39e077b",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/Disaster-Insurance-Ethereum-dApp/static/js/runtime~main.97884a6b.js"
   },
   {
-    "revision": "0e2f5fd79773eba7dc6df1b7457c5fb4",
+    "revision": "18c1345120b98980b043aa93f4508a94",
     "url": "/Disaster-Insurance-Ethereum-dApp/index.html"
   }
 ];
