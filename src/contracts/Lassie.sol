@@ -134,7 +134,7 @@ contract Lassie {
             responderState = 2;
             transferEther(responderPrepAmount);
         }
-        if (responderState == 3) {
+        else if (responderState == 3) {
             contractState = 3;
             responderState = 3;
             transferEther(responderRespondAmount);
