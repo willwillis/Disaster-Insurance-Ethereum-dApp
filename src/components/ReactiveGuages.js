@@ -115,7 +115,7 @@ class ReactiveGuages extends Component {
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 2000);
+    this.timerID = setInterval(() => this.tick(), 4000);
   }
 
   componentWillUnmount() {
