@@ -66,7 +66,7 @@ class AppSyncSensorDos extends Component {
             this.setState({
               smoke: event.value.data.onUpdateSensor.smoke
             });
-            if (this.smoke > 200) {
+            if (event.value.data.onUpdateSensor.smoke > 200) {
               this.props.setSmoke(true, "PiZero");
             }
           }

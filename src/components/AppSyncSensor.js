@@ -72,8 +72,9 @@ class AppSyncSensor extends Component {
             this.setState({
               smoke: event.value.data.onUpdateSensor.smoke
             });
-            if (this.smoke > 200) {
+            if (event.value.data.onUpdateSensor.smoke > 200) {
               this.props.setSmoke(true, "Pi4");
+              console.log("@ DEBUG @ I SMOKE Breached.....");
             }
           }
         }
