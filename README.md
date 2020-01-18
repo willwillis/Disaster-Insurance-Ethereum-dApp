@@ -18,7 +18,7 @@ Ethereum will be deployed to the Disaster Response teams to rememediate the natu
 1. `truffle compile` compile all .sol contracts in this folder structure
 2. `truffle migrate` Deploys to the network
 3. `truffle build` Builds everything to the front-end folder
-4. Fund the contract (currently 0x5C6Ca66145761382d9abf24f4162C333f5C63b16 with some wei)
+4. Fund the contract (currently <> with some wei)
 
 # Install node dependencies for the React front-end
 

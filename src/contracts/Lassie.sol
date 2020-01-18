@@ -92,8 +92,10 @@ contract Lassie {
                 setResponderState(3,_sensorName);
             }
         } 
-        if (smokeThresholdBreached == false && temperatureThresholdBreached == false){
-            setResponderState(1,_sensorName);
+        if (smokeThresholdBreached == false){
+            if (temperatureThresholdBreached == false) {
+                setResponderState(1,_sensorName);
+            }
         }
     }
 
@@ -103,10 +105,14 @@ contract Lassie {
             setResponderState(2,_sensorName);
             if (temperatureThresholdBreached == true) {
                 setResponderState(3,_sensorName);
+                contractState = 1;
             }
         }
-         if (smokeThresholdBreached == false && temperatureThresholdBreached == false){
-            setResponderState(1,_sensorName);
+        if (smokeThresholdBreached == false){
+            if (temperatureThresholdBreached == false) {
+                setResponderState(1,_sensorName);
+                contractState = 1;
+            }
         }
     }
     
