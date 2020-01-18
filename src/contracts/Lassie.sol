@@ -139,7 +139,8 @@ contract Lassie {
             responderState = 3;
             transferEther(responderRespondAmount);
         } else {
-            // not sure how we'd even get here.
+            contractState = 1;
+            responderState = 1;
         }
 
         emit  publishWSContractState(
