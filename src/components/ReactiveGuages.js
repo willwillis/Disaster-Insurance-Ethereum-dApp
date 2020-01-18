@@ -115,7 +115,7 @@ class ReactiveGuages extends Component {
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 5000);
+    this.timerID = setInterval(() => this.tick(), 2000);
   }
 
   componentWillUnmount() {
@@ -199,7 +199,7 @@ class ReactiveGuages extends Component {
                         contractStateToString(this.state.contractState) ||
                         "Loading.."
                       }
-                      animDelay={6700}
+                      animDelay={500}
                     />
                   </Col>
                   <Col xs={12} lg={3}>
@@ -216,7 +216,7 @@ class ReactiveGuages extends Component {
                         responderStateToString(this.state.responderState) ||
                         "Loading.."
                       }
-                      animDelay={8000}
+                      animDelay={500}
                     />
                   </Col>
 
@@ -235,7 +235,7 @@ class ReactiveGuages extends Component {
                         thresholdToString(this.state.smokeThresholdBreached) ||
                         "Loading..."
                       }
-                      animDelay={5000}
+                      animDelay={500}
                     />
                   </Col>
 
@@ -257,7 +257,7 @@ class ReactiveGuages extends Component {
                           this.state.temperatureThresholdBreached
                         ) || "Loading..."
                       }
-                      animDelay={3000}
+                      animDelay={500}
                     />
                   </Col>
                 </Row>
