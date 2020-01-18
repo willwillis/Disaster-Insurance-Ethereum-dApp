@@ -23,7 +23,7 @@ contract Lassie {
         string endpoint
     );
     
-    event publishContractState(
+    event publishWSContractState(
         uint contractState,
         uint responderState,
         string sensorName,
@@ -54,8 +54,8 @@ contract Lassie {
 
 
     // STATE VARIABLES
-    uint8 public contractState;  // 1 = OK    2 = WARNING   3 = CRITICAL
-    uint8 public responderState; // 1 = OK    2 = PREPPED    3 = RESPOND
+    uint public contractState;  // 1 = OK    2 = WARNING   3 = CRITICAL
+    uint public responderState; // 1 = OK    2 = PREPPED    3 = RESPOND
     // RESPONDER Payment Amounts
     uint256 public responderPrepAmount = 1 wei;
     uint256 public responderRespondAmount = 2 wei;
@@ -109,11 +109,9 @@ contract Lassie {
         emit somebodyGotPaid(_amount);
     }
 
-    function setResponderState(uint8 _newState, string memory _sensorName) private {
+    function setResponderState(uint _newState, string memory _sensorName ) private {
         // @TODO add abi encoding
         responderState = _newState;
-
-        emit currentResponderState(_newState, _sensorName);
 
         if (responderState == 2) {
             contractState = 2;
@@ -127,6 +125,15 @@ contract Lassie {
         } else {
             // not sure how we'd even get here.
         }
+
+        emit  publishWSContractState(
+            contractState,
+            responderState,
+            _sensorName,
+            sensorCount,
+            smokeThresholdBreached,
+            temperatureThresholdBreached
+        );
     }  
     
     function () external payable {}

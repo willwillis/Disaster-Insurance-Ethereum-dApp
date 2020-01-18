@@ -2,7 +2,7 @@
   "name": "lassie",
   "version": "0.1.0",
   "description": "Learning Solidity (Ethereum Smart Contracts) and Web3",
-  "author": "Will Willis",
+  "author": "Will Willis, Mike Ferber, Brent McMinn",
   "homepage": "https://willwillis.github.io/Disaster-Insurance-Ethereum-dApp/",
   "dependencies": {
     "@aws-amplify/api": "^2.1.3",

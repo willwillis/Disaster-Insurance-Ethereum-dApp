@@ -1,22 +1,33 @@
-# Project Steps
+# Lassie Disaster Response with Internet of Things, Smart Contracts and flying things...
+
+Our process starts with Arduino Sensors connected to a Rasberry Pi. Python and C++
+programs on the Pi send real-time sensor data to AWS Cloud services. From there, the
+React DApp subscribes to that data, in near real-time. If SMOKE and TEMPERATURE levels
+breach the threshold defined for this specifc geographical area and Smart Contract,
+Ethereum will be deployed to the Disaster Response teams to rememediate the natural disaster.
+
+![System Overview](./public/SystemOverview.png)
+
+# Install Steps
 
 1. `git clone git@github.com:willwillis/Disaster-Insurance-Ethereum-dApp.git`
 2. `cd Disaster-Insurance-Ethereum-dApp`
 
 # Compile Solidity Smart Contract
 
-1. `truffle compile` to compile contracts in this project
-2. `truffle migrate`
+1. `truffle compile` compile all .sol contracts in this folder structure
+2. `truffle migrate` Deploys to the network
+3. `truffle build` Builds everything to the front-end folder
 
 # Install node dependencies for the React front-end
 
-1. `npm install`
-2. `npm run start`
+1. `npm install` pulls down dependent javascript libraries
+2. `npm run start` starts local server
 
 # Build Project and Deploy to Github Pages
 
-1. `npm run build`
-2. `npm run deploy`
+1. `npm run build` builds a deployable release of the DAapp
+2. `npm run deploy` given our conig, this deploys to github pages
 
 # Technologies used in this Project
 
