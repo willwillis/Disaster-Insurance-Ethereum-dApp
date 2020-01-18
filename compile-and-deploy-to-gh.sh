@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 echo "Starting process...."
 truffle compile
-truffle migrate
+truffle migrate --network kovan
 truffle build
 echo "\n\n\n Truffle Steps Complete...."
 

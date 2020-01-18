@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Example from "./Example";
+import Dialog from "./Dialog";
 import { FaRegUserCircle } from "react-icons/fa";
 
 // Thank you https://appdividend.com/2018/03/30/react-bootstrap-modal-example-tutorial/
@@ -26,7 +26,7 @@ class Navbar extends Component {
               </span>
             </span>
             &nbsp; &nbsp; &nbsp;
-            <Example
+            <Dialog
               networkDataAddress={networkDataAddress}
               yourAccount={this.props.account}
               contractName={this.props.contractName}

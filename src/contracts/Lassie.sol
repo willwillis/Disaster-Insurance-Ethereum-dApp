@@ -92,6 +92,9 @@ contract Lassie {
                 setResponderState(3,_sensorName);
             }
         } 
+        if (smokeThresholdBreached == false && temperatureThresholdBreached == false){
+            setResponderState(1,_sensorName);
+        }
     }
 
     function setTemperature (bool _newVal, string memory _sensorName) public {
@@ -101,6 +104,9 @@ contract Lassie {
             if (temperatureThresholdBreached == true) {
                 setResponderState(3,_sensorName);
             }
+        }
+         if (smokeThresholdBreached == false && temperatureThresholdBreached == false){
+            setResponderState(1,_sensorName);
         }
     }
     

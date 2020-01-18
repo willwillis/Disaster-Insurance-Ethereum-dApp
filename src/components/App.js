@@ -16,6 +16,7 @@ import OverrideResponder from "./OverrideResponder";
 import AppSyncSensor from "./AppSyncSensor";
 import AppSyncSensorDos from "./AppSyncSensorDos"; // refactor || die($!)
 import Clock from "./Clock";
+import ReactiveGuages from "./ReactiveGuages";
 
 class App extends Component {
   async componentWillMount() {
@@ -186,14 +187,18 @@ class App extends Component {
             <About contractName={this.state.name} />
             <Row>
               <Col xs={12} lg={9}>
-                <Guage
+                {/* <Clock /> */}
+                {/* <Guage
                   contractState={this.state.contractState}
                   responderState={this.state.responderState}
                   smokeThresholdBreached={this.state.smokeThresholdBreached}
                   temperatureThresholdBreached={
                     this.state.temperatureThresholdBreached
                   }
-                />
+                /> */}
+                <hr />
+                <ReactiveGuages />
+                <hr />
                 <GMap
                   sensors={this.state.sensors}
                   center={this.state.mapCenter}
@@ -244,9 +249,11 @@ class App extends Component {
             <Row>
               <Col>
                 {" "}
-                <OverrideResponder setResponderState={this.setResponderState} />
+                {/* <OverrideResponder setResponderState={this.setResponderState} /> */}
               </Col>
-              <Col></Col>
+              <Col>
+                <ReactiveGuages />
+              </Col>
             </Row>
           </>
         )}
