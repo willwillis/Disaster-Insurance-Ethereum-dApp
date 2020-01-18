@@ -86,12 +86,15 @@ contract Lassie {
     // @TODO accept a sensorID, and set state on Sensor
  function setSmoke( bool _newVal, string memory _sensorName) public {
         smokeThresholdBreached = _newVal;
-        if (temperatureThresholdBreached == true){
+
+        // Teste Smoke First
+        if (smokeThresholdBreached == true){
             setResponderState(2,_sensorName);
-            if (smokeThresholdBreached == true) {
+            if (temperatureThresholdBreached == true) {
                 setResponderState(3,_sensorName);
             }
-        } 
+        }
+        /// back to 1
         if (smokeThresholdBreached == false){
             if (temperatureThresholdBreached == false) {
                 setResponderState(1,_sensorName);
@@ -101,13 +104,14 @@ contract Lassie {
 
     function setTemperature (bool _newVal, string memory _sensorName) public {
         temperatureThresholdBreached = _newVal;
-        if (smokeThresholdBreached == true){
+        //// Teset Temp First
+        if (temperatureThresholdBreached == true){
             setResponderState(2,_sensorName);
-            if (temperatureThresholdBreached == true) {
+            if (smokeThresholdBreached == true) {
                 setResponderState(3,_sensorName);
-                contractState = 1;
             }
-        }
+        } 
+        /// back to 1
         if (smokeThresholdBreached == false){
             if (temperatureThresholdBreached == false) {
                 setResponderState(1,_sensorName);
