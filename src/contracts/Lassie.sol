@@ -23,9 +23,13 @@ contract Lassie {
         string endpoint
     );
     
-    event currentResponderState(
-        uint stateNum,
-        string sensorName
+    event publishContractState(
+        uint contractState,
+        uint responderState,
+        string sensorName,
+        uint sensorCount,
+        bool smokeThresholdBreached,
+        bool temperatureThresholdBreached
     );
 
     event somebodyGotPaid(

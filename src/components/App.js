@@ -15,6 +15,7 @@ import { FaNetworkWired } from "react-icons/fa";
 import OverrideResponder from "./OverrideResponder";
 import AppSyncSensor from "./AppSyncSensor";
 import AppSyncSensorDos from "./AppSyncSensorDos"; // refactor || die($!)
+import Clock from "./Clock";
 
 class App extends Component {
   async componentWillMount() {
@@ -128,6 +129,7 @@ class App extends Component {
       .send({ from: this.state.account })
       .once("receipt", receipt => {
         this.setState({ loading: false });
+        window.location.reload(true);
       });
   }
 
@@ -169,6 +171,7 @@ class App extends Component {
                 <FaNetworkWired />
               </h1>
               <h1>Connecting to Ethereum Network...</h1>
+              <Clock />
             </p>
           </div>
         ) : (

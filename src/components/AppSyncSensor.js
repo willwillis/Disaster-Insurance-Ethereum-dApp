@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Col } from "react-bootstrap";
+// import linkState from "react-link-state";
 
 // import { Logger } from "aws-amplify";
 
