@@ -29,7 +29,9 @@ export default class ModalComponent extends React.Component {
           <ModalBody>
             <b>Contract Address:</b>
             <br />
-            <a href="{`https://kovan.etherscan.io/address/${this.props.networkDataAddress}`}">
+            <a
+              href={`https://kovan.etherscan.io/address/${this.props.networkDataAddress}`}
+            >
               {this.props.networkDataAddress}
             </a>
             <br />
@@ -51,7 +53,9 @@ export default class ModalComponent extends React.Component {
             <br />
             <b> Current Block Number:</b>
             <br />
-            <a href="{`https://kovan.etherscan.io/block/${this.props.blockNumber}`}">
+            <a
+              href={`https://kovan.etherscan.io/block/${this.props.blockNumber}`}
+            >
               {this.props.blockNumber}
             </a>
             <br />
