@@ -19,6 +19,10 @@ class ListSensorsNarrow extends Component {
             </tr>
           </thead>
           <tbody id="sensorList">
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
             {this.props.sensors.map((sensor, key) => {
               return (
                 <tr key={key}>

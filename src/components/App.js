@@ -207,13 +207,6 @@ class App extends Component {
               </Col>
               <Col xs={12} lg={3} className={"p-3 mb-2 bg-light text-dark"}>
                 <Row>
-                  <Col>
-                    Smoke Threshold: 200
-                    <br />
-                    Temp Threshold: 40
-                  </Col>
-                </Row>
-                <Row>
                   <AppSyncSensor
                     sensorName={"Pi4"}
                     setTemp={this.setTemp}
