@@ -1,4 +1,5 @@
-Bogong Peaks Wilderness: -35.516	148.386  
+Bogong Peaks Wilderness: -35.516	148.386  (Too Close to Melbourne)
+
 Sydney: -32.718	150.059
 Melbourne -36.738 148.109
 Brisbane -26.95	152.844
