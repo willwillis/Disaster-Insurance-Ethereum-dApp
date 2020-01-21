@@ -32,6 +32,7 @@ class Navbar extends Component {
               contractName={this.props.contractName}
               networkID={this.props.networkID}
               blockNumber={this.props.blockNumber}
+              //   transactionCount={this.props.transactionCount}
             />
           </li>
         </ul>

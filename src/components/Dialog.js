@@ -41,6 +41,11 @@ export default class ModalComponent extends React.Component {
             {this.props.contractName}
             <br />
             <br />
+            {/* <b>Transaction Count:</b>
+            <br />
+            {this.props.transactionCount}
+            <br />
+            <br /> */}
             <b> Your Active Address:</b>
             <br />
             {this.props.yourAccount}

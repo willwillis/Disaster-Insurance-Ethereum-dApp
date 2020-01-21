@@ -49,6 +49,7 @@ class App extends Component {
     const blockNumber = await web3.eth.getBlockNumber();
     console.log("blockNumber: " + blockNumber);
     this.setState({ blockNumber });
+
     if (networkData) {
       // window.alert('loadBlockChainData ... networkData is truthy...')
       const lassie = web3.eth.Contract(Lassie.abi, networkData.address);
@@ -64,6 +65,11 @@ class App extends Component {
       }
       const networkDataAddress = networkData.address;
       this.setState({ networkDataAddress });
+
+      //   const transactionCount = await web3.eth.getTransactionCount(
+      //     networkDataAddress
+      //   );
+      //   this.setState({ transactionCount });
 
       const contractState = await lassie.methods.contractState().call();
       this.setState({ contractState });
@@ -109,6 +115,7 @@ class App extends Component {
       temperatureThresholdBreached: "",
       name: "",
       networkDataAddress: "",
+      transactionCount: "",
       networkId: "",
       mapCenter: {
         lat: -25.2744,
@@ -184,6 +191,7 @@ class App extends Component {
               contractName={this.state.name}
               networkID={this.state.networkID}
               blockNumber={this.state.blockNumber}
+              transactionCount={this.transactionCount}
             />
             <About contractName={this.state.name} />
             <Row>
