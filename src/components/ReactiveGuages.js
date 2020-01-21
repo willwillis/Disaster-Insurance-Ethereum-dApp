@@ -115,7 +115,8 @@ class ReactiveGuages extends Component {
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 4000);
+    this.timerID = setInterval(() => this.tick(), 3000);
+    console.log("Querying contract for updates...");
   }
 
   componentWillUnmount() {
