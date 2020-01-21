@@ -13,8 +13,8 @@ import ListSensors from "./ListSensors";
 import SiteFooter from "./SiteFooter";
 import { FaNetworkWired } from "react-icons/fa";
 import OverrideResponder from "./OverrideResponder";
-import AppSyncSensor from "./AppSyncSensor";
-import AppSyncSensorDos from "./AppSyncSensorDos"; // refactor || die($!)
+// import AppSyncSensor from "./AppSyncSensor";
+// import AppSyncSensorDos from "./AppSyncSensorDos"; // refactor || die($!)
 import Clock from "./Clock";
 import ReactiveGuages from "./ReactiveGuages";
 
@@ -130,7 +130,8 @@ class App extends Component {
       .send({ from: this.state.account })
       .once("receipt", receipt => {
         this.setState({ loading: false });
-        window.location.reload(true);
+        // window.location.reload(true);
+        window.location.reload();
       });
   }
 
@@ -207,14 +208,8 @@ class App extends Component {
               </Col>
               <Col xs={12} lg={3} className={"p-3 mb-2 bg-light text-dark"}>
                 <Row>
-                  <AppSyncSensor
-                    sensorName={"Pi4"}
-                    setTemp={this.setTemp}
-                    setSmoke={this.setSmoke}
-                    smokeThresholdBreached={this.state.smokeThresholdBreached}
-                    temperatureThresholdBreached={
-                      this.state.temperatureThresholdBreached
-                    }
+                  {/* <AppSyncSensor
+
                   ></AppSyncSensor>
                   <AppSyncSensorDos
                     sensorName={"PiZero"}
@@ -224,12 +219,21 @@ class App extends Component {
                     temperatureThresholdBreached={
                       this.state.temperatureThresholdBreached
                     }
-                  ></AppSyncSensorDos>
+                  ></AppSyncSensorDos> */}
                 </Row>
                 <ListTopSensors
                   sensors={this.state.sensors.slice(-3).reverse()}
                 />
-                <AddSensor createSensor={this.createSensor} />
+                <AddSensor
+                  createSensor={this.createSensor}
+                  sensorName={"Pi4"}
+                  setTemp={this.setTemp}
+                  setSmoke={this.setSmoke}
+                  smokeThresholdBreached={this.state.smokeThresholdBreached}
+                  temperatureThresholdBreached={
+                    this.state.temperatureThresholdBreached
+                  }
+                />
               </Col>
             </Row>
             <Row>

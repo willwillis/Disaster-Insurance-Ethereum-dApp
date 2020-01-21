@@ -52,7 +52,7 @@ class AppSyncSensor extends Component {
     this.subscription = API.graphql(graphqlOperation(onUpdateSensor)).subscribe(
       {
         next: event => {
-          console.log("@ DEBUG @ I got to subscribe");
+          //   console.log("@ DEBUG @ I got to subscribe");
           if (event) {
             console.log(
               "Subscription: " + JSON.stringify(event.value.data, null, 2)
@@ -88,11 +88,11 @@ class AppSyncSensor extends Component {
 
   render() {
     return (
-      <Col>
-        <h2 className="center">Pi4</h2>
-        <h3>Temp: ({this.state.temp})</h3>
-        <h3>Smoke: ({this.state.smoke})</h3>
-      </Col>
+      <tr className="display-4">
+        <td>Pi 4</td>
+        <td className="text-center">{this.state.temp}</td>
+        <td className="text-center">{this.state.smoke}</td>
+      </tr>
     );
   }
 }
