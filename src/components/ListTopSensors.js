@@ -30,8 +30,9 @@ class ListSensorsNarrow extends Component {
               return (
                 <tr key={key}>
                   <td>{sensor.name}</td>
-                  <td className="text-center">{getRandomInt(5, 8)}</td>
-                  <td className="text-center">{getRandomInt(60, 63)}</td>
+                  {/* smoke  */}
+                  <td className="text-center">{getRandomInt(95, 120)}</td>
+                  <td className="text-center">{getRandomInt(23, 29)}</td>
                 </tr>
               );
             })}

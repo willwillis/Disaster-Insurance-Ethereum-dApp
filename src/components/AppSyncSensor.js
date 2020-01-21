@@ -90,8 +90,8 @@ class AppSyncSensor extends Component {
     return (
       <tr className="display-4">
         <td>Pi 4</td>
-        <td className="text-center">{this.state.temp}</td>
         <td className="text-center">{this.state.smoke}</td>
+        <td className="text-center">{this.state.temp}</td>
       </tr>
     );
   }

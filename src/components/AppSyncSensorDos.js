@@ -39,11 +39,24 @@ class AppSyncSensorDos extends Component {
       lat: "",
       lon: "",
       timestamp: "",
-      display: false
+      display: false,
+      smokeThreshold: 200,
+      tempThreshold: 40,
+      smokeClass: "",
+      tempClass: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  thresholdBreachedClass(value, threshold) {
+    if (threshold > value) {
+      // we've breached
+      return "alert alert-danger";
+    } else {
+      return "";
+    }
   }
 
   async componentDidMount() {
@@ -60,14 +73,20 @@ class AppSyncSensorDos extends Component {
             this.setState({
               temp: event.value.data.onUpdateSensor.temp
             });
-            if (this.temp > 40) {
+            if (this.temp > this.tempThreshold) {
+              this.state.tempClass = "text-center alert alert-danger";
               this.props.setTemp(true, "PiZero");
+            } else {
+              this.state.tempClass = "text-center";
             }
             this.setState({
               smoke: event.value.data.onUpdateSensor.smoke
             });
-            if (event.value.data.onUpdateSensor.smoke > 200) {
+            if (event.value.data.onUpdateSensor.smoke > this.smokeThreshold) {
+              this.state.smokeClass = "text-center alert alert-danger";
               this.props.setSmoke(true, "PiZero");
+            } else {
+              this.state.smokeClass = "text-center";
             }
           }
         }
@@ -83,8 +102,9 @@ class AppSyncSensorDos extends Component {
     return (
       <tr className="display-4">
         <td>Pi Zero</td>
-        <td className="text-center">{this.state.temp}</td>
-        <td className="text-center">{this.state.smoke}</td>
+        {""}
+        <td className={this.state.smokeClass}>{this.state.smoke}</td>
+        <td className={this.state.tempClass}>{this.state.temp}</td>
       </tr>
     );
   }
