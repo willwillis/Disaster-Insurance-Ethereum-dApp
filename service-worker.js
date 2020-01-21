@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Disaster-Insurance-Ethereum-dApp/precache-manifest.8cbc8f37037720399294988b86d58628.js"
+  "/Disaster-Insurance-Ethereum-dApp/precache-manifest.7cc57d4b607542774d822c6bfb0c324b.js"
 );
 
 workbox.clientsClaim();
