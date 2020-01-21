@@ -244,9 +244,7 @@ class App extends Component {
                 {" "}
                 {/* <OverrideResponder setResponderState={this.setResponderState} /> */}
               </Col>
-              <Col>
-                <ReactiveGuages />
-              </Col>
+              <Col></Col>
             </Row>
           </>
         )}

@@ -62,3 +62,11 @@
 .bigger {
   font-size: 10em;
 }
+
+.ww_guage_parent:nth-child(2) {
+  background: #ff0000;
+}
+
+.ww_guage_container {
+  background-color: silver;
+}
