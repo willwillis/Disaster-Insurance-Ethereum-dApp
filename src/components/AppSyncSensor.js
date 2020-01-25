@@ -14,18 +14,6 @@ console.log(
   " @ DEBUG @ aws_exports:" + JSON.stringify(Amplify.configure(aws_exports))
 );
 
-// const onUpdateSensor = `subscription OnUpdateSensor($id: ID!) {
-//     onUpdateSensor(id: $id) {
-//       id
-//       temp
-//       smoke
-//       lat
-//       long
-//       timestamp
-//     }
-//   }
-//   `;
-
 const onUpdateSensor = `subscription 
 OnUpdateSensor{onUpdateSensor(id: "Pi4") 
 {id,temp,smoke,lat,long,timestamp}}`;
