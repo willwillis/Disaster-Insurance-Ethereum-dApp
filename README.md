@@ -6,6 +6,13 @@ React DApp subscribes to that data, in near real-time. If SMOKE and TEMPERATURE 
 breach the threshold defined for this specifc geographical area and Smart Contract,
 Ethereum will be deployed to the Disaster Response teams to rememediate the natural disaster.
 
+## Screenshot
+
+> You will not be able to view the site unless you have a MetaMask plugin enabled. For those that don't, here is a screenshot.
+> Also, the real-time updates of our Raspberrys will likely stop updating in January 2020, it costs several bucks a month to feed IoT data to AWS every few seconds.
+
+![Website Screenshot](./public/Screenshot.png)
+
 ![System Overview](./public/SystemOverview.png)
 
 # Install Steps
